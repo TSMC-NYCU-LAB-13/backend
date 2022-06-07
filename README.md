@@ -1,18 +1,21 @@
 # Backend
 
 ## Install Library
-```
+```bash
 pip install -r requirements.txt
 ```
 
 ## Run
-```
+```bash
 python main.py
 ```
 
 ## Test
-```
+```bash
+pytest
 
+# run test coverage
+py.test --cov=./ tests/
 ```
 
 ## API Document
