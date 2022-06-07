@@ -6,7 +6,7 @@ from typing import List
 from dotenv import load_dotenv
 from datetime import datetime
 
-import crud, utils
+import crud, schemas, utils
 from database import SessionLocal
 
 load_dotenv()
@@ -61,6 +61,11 @@ def check_db_status(db: Session = Depends(get_db)):
     return {
         "db_status": True
     }
+
+
+@app.post('/api/articles', response_model=schemas.Article)
+def create_articles(db: Session = Depends(get_db), item: schemas.Article = None):
+    return crud.create_article(db=db, item=item)
 
 
 if __name__ == "__main__":

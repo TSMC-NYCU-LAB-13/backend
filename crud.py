@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from datetime import datetime
 
+import schemas
 from models import Article
 
 
@@ -32,3 +33,10 @@ def get_keywords(db: Session):
     keywords = [data.keyword for data in articles]
     return list(set(keywords))
 
+
+def create_article(db: Session, item: schemas.Article):
+    db_item = Article(**item.dict())
+    db.add(db_item)
+    db.commit()
+    db.refresh(db_item)
+    return db_item
