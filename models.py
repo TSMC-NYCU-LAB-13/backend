@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, FLOAT, TEXT, DATETIME, TIMESTAMP
 from database import Base
-
+from datetime import datetime
 
 class Article(Base):
     __tablename__ = "articles"
@@ -12,7 +12,7 @@ class Article(Base):
     time = Column(DATETIME)
     keyword = Column(TEXT, index=True)
     emotional_value = Column(FLOAT, nullable=True)
-    created_at = Column(TIMESTAMP)
+    created_at = Column(TIMESTAMP, default=datetime.utcnow)
 
     def to_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
