@@ -1,13 +1,8 @@
 # Backend
 
-## Install
+## Install Library
 ```
-pip install fastapi
-pip install uvicorn
-pip install sqlalchemy
-pip install mariadb
-pip install pydantic
-pip install python-dotenv
+pip install -r requirements.txt
 ```
 
 ## Run
