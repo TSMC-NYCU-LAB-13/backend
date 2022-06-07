@@ -69,4 +69,4 @@ def create_articles(db: Session = Depends(get_db), item: schemas.Article = None)
 
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app", host=APP_URL, port=APP_PORT, reload=True, debug=APP_DEBUG) 
+    uvicorn.run(app="main:app", host=APP_URL, port=APP_PORT, reload=True, debug=APP_DEBUG)
