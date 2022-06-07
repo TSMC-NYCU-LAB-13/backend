@@ -3,7 +3,7 @@ import pytest
 import sqlalchemy
 from dotenv import load_dotenv
 from src.database import Base
-from src.main import app, get_db
+from main import app, get_db
 
 load_dotenv()
 

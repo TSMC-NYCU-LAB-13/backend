@@ -1,7 +1,7 @@
 from fastapi.testclient import TestClient
 import datetime
 import string, random
-from src.main import app
+from main import app
 
 client = TestClient(app)
 
