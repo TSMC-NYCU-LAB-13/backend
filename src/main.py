@@ -6,8 +6,8 @@ from typing import List
 from dotenv import load_dotenv
 from datetime import datetime
 
-import crud, schemas, utils
-from database import SessionLocal
+from . import crud, schemas, utils
+from .database import SessionLocal
 
 load_dotenv()
 app = FastAPI()

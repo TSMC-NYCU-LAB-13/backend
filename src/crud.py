@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from datetime import datetime
 
-import schemas
-from models import Article
+from . import schemas
+from .models import Article
 
 
 def get_all(db: Session):
