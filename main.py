@@ -1,11 +1,12 @@
 import os
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException, Query
 import uvicorn
 from sqlalchemy.orm import Session
 from typing import List
 from dotenv import load_dotenv
+from datetime import datetime
 
-import crud, schemas
+import crud, schemas, utils, models
 from database import SessionLocal
 
 load_dotenv()
@@ -23,9 +24,16 @@ def get_db():
         db.close()
 
 
-@app.get('/articles', response_model=List[schemas.Article])
-def get_articles(db: Session = Depends(get_db)):
-    return crud.get_articles(db)
+@app.get('/api/articles')
+def get_articles(db: Session = Depends(get_db), keyword: str = None, start: datetime = None, end: datetime = None):
+    return crud.get_articles(db, keyword, start, end)
+
+
+@app.get('/api/keywords')
+def get_keywords(db: Session = Depends(get_db)):
+    return {
+        "keywords": crud.get_keywords(db)
+    }
 
 
 if __name__ == "__main__":
