@@ -11,7 +11,7 @@ class Article(Base):
     url = Column(TEXT, unique=True)
     time = Column(DATETIME)
     keyword = Column(TEXT, index=True)
-    emotional_value = Column(FLOAT)
+    emotional_value = Column(FLOAT, nullable=True)
     created_at = Column(TIMESTAMP)
 
     def to_dict(self):
