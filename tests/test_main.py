@@ -1,9 +1,7 @@
-import sys, os
-sys.path.append(os.getcwd())
 from fastapi.testclient import TestClient
 import datetime
 import string, random
-from main import app
+from src.main import app
 
 client = TestClient(app)
 

@@ -17,13 +17,13 @@ def get_statictic(articles, limit):
             cur_week += 48
 
         w_key = f'{year}-{cur_week - i}'
-            
+
         statistic[w_key] = {
             'start_at': get_first_week_day(w_key),
             'value_avg':0,
             'count': 0,
         }
-    
+
     ## update article info
     for article in articles:
         week = article.time.isocalendar()[1]

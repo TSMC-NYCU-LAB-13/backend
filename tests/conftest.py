@@ -1,10 +1,9 @@
-import sys, os
-sys.path.append(os.getcwd())
+import os
 import pytest
 import sqlalchemy
 from dotenv import load_dotenv
-from database import Base
-from main import app, get_db
+from src.database import Base
+from src.main import app, get_db
 
 load_dotenv()
 
