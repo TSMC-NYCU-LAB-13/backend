@@ -12,9 +12,9 @@ from .database import SessionLocal
 load_dotenv()
 app = FastAPI()
 
-APP_URL   = os.getenv('APP_URL')
-APP_PORT  = int(os.getenv('APP_PORT'))
-APP_DEBUG = os.getenv('APP_DEBUG')
+# APP_URL   = os.getenv('APP_URL')
+# APP_PORT  = int(os.getenv('APP_PORT'))
+# APP_DEBUG = os.getenv('APP_DEBUG')
 
 def get_db():
     try:
@@ -68,5 +68,5 @@ def create_articles(db: Session = Depends(get_db), item: schemas.Article = None)
     return crud.create_article(db=db, item=item)
 
 
-if __name__ == "__main__":
-    uvicorn.run(app="main:app", host=APP_URL, port=APP_PORT, reload=True, debug=APP_DEBUG)
+# if __name__ == "__main__":
+#     uvicorn.run(app="main:app", host=APP_URL, port=APP_PORT, reload=True, debug=APP_DEBUG)
