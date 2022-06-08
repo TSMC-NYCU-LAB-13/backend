@@ -28,6 +28,9 @@ def get_db():
 def get_statistics(db: Session = Depends(get_db), keywords: List[str] = Query(None), limit: int = 10):
     response = []
 
+    if keywords == None:
+        raise HTTPException(status_code=418, detail="No Keyword.")
+
     for keyword in keywords:
         articles = crud.get_articles(db, keyword, None, None)
 
