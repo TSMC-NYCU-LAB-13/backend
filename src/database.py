@@ -14,7 +14,7 @@ DB_PORT       = os.getenv('DB_PORT')
 DB_DATABASE   = os.getenv('DB_DATABASE')
 
 SQLALCHEMY_DB_URL = f"{DB_CONNECTION}+{DB_CONNECTION}connector://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DATABASE}"
-Engine = sqlalchemy.create_engine(SQLALCHEMY_DB_URL)
+Engine = sqlalchemy.create_engine(SQLALCHEMY_DB_URL, pool_recycle=3600, pool_pre_ping=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=Engine)
 Base = declarative_base()
 
