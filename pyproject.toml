@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["t106362512 <t106362512@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.78.0"
+uvicorn = "^0.17.6"
+SQLAlchemy = "^1.4.37"
+python-dotenv = "^0.20.0"
+requests = "^2.28.0"
+mariadb = "^1.0.11"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "--junitxml=junit/test-results.xml --cov=. --cov-report=xml --cov-report=html --verbose"
+junit_family = "xunit2"
