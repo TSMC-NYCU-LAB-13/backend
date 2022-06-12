@@ -1,13 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-
 # secretGenerator:
 # - name: backend
 #   envs:
 #   - .env
-
 resources:
 - backend-ns.yaml
 - backend-deploy.yaml
 - backend-hpa.yaml
 - backend-svc.yaml
+images:
+- name: quay.io/tsmc-nycu-lab-13/backend
+  newTag: 676c486
