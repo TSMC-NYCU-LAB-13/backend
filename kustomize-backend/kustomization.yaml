@@ -11,4 +11,4 @@ resources:
 - backend-svc.yaml
 images:
 - name: quay.io/tsmc-nycu-lab-13/backend
-  newTag: 676c486
+  newTag: 73194b5
